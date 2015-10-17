@@ -2,4 +2,6 @@
     <string name="app_name">PrioT</string>
     <string name="action_settings">Settings</string>
     <string name="greetings">Welcome!</string>
+    <string name="text_current_location">Current location:</string>
+    <string name="button_open_map">Open Map</string>
 </resources>
