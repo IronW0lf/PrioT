@@ -4,4 +4,12 @@
     <string name="greetings">Welcome!</string>
     <string name="text_current_location">Current location:</string>
     <string name="button_open_map">Open Map</string>
+    <string name="title_activity_playlists">Playlists</string>
+    <string name="title_activity_frame">FrameActivity</string>
+    <string name="title_activity_adapter">AdapterActivity</string>
+    <string name="title_activity_fragment">FragmentActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_recycler">RecyclerActivity</string>
 </resources>

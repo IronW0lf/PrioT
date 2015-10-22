@@ -1,30 +1,56 @@
 package com.vald.priot;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String currentLocation = "Home";
+    private RecyclerView recyclerView;
+    Button newActivityButton;
+
+    public void openNewActivity(View view){
+        Intent intent = new Intent(this, Playlists.class);
+        startActivity(intent);
+    }
+
     public void openMap(View view) {
-        TextView currentLocationTextView = (TextView) findViewById(R.id.currentLocation);
+        TextView currentLocationTextView = (TextView) findViewById(R.id.currentLocation_text_view);
         switch (currentLocationTextView.getText().toString()) {
             case "Home":
-                currentLocationTextView.setText("Work");
+                currentLocation = "Work";
                 break;
             case "Work":
-                currentLocationTextView.setText("Home");
+                currentLocation = "Home";
                 break;
             default:
-                currentLocationTextView.setText("Home");
+                currentLocation = "Home";
                 break;
         }
+        currentLocationTextView.setText(currentLocation);
+
+//        TextView test = new TextView(this);
+//        test.setText("WTF is going on!?");
+//        setContentView(test);
+
     }
 
     @Override
@@ -34,6 +60,22 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+//        Set Location
+        TextView currentLocationTextView = (TextView) findViewById(R.id.currentLocation_text_view);
+        currentLocationTextView.setText(currentLocation);
+
+//        Song List Array
+        String[] songsArray = {"song1", "song2", "song3", "song4", "song5"};
+
+        ArrayAdapter mSongListAdapter = new ArrayAdapter<>(this,R.layout.list_item_song,songsArray);
+
+        ListView songsList = (ListView) findViewById(R.id.listview_songs);
+        songsList.setAdapter(mSongListAdapter);
+
+
+        newActivityButton = (Button) findViewById(R.id.new_activity_button);
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
