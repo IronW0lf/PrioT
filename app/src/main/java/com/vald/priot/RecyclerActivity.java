@@ -41,12 +41,12 @@ public class RecyclerActivity extends AppCompatActivity {
 
     public static List<RecyclerItem> getData(){
         List<RecyclerItem> data = new ArrayList<>();
-        int[] icons={R.drawable.tiger,R.drawable.tiger,R.drawable.tiger,R.drawable.tiger,R.drawable.tiger};
-        String[] titles = {"How", "Hard", "Can", "This", "Be"};
-        for(int i=0;i<titles.length && i<icons.length;i++){
+        int[] icons={R.drawable.tiger,R.drawable.img1,R.drawable.img2,R.drawable.tiger,R.drawable.img1};
+        String[] titles = {"How", "Difficult", "Can", "This", "Be"};
+        for(int i=0;i<100;i++){
             RecyclerItem current = new RecyclerItem();
-            current.iconId=icons[i];
-            current.title=titles[i];
+            current.iconId=icons[i%icons.length];
+            current.title=titles[i%titles.length];
             data.add(current);
         }
         return data;
