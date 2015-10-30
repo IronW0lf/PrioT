@@ -2,6 +2,7 @@ package com.vald.priot;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String currentLocation = "Home";
+    private String currentLocation;
     private RecyclerView recyclerView;
     Button newActivityButton;
 
@@ -62,6 +63,15 @@ public class MainActivity extends AppCompatActivity {
 
 //        Set Location
         TextView currentLocationTextView = (TextView) findViewById(R.id.currentLocation_text_view);
+
+        if(savedInstanceState==null){
+            currentLocation = "Home";
+        }
+        else {
+            currentLocation = savedInstanceState.getString("currentLocation", "Home");
+        }
+
+
         currentLocationTextView.setText(currentLocation);
 
 //        Song List Array
@@ -92,6 +102,12 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("currentLocation", currentLocation);
     }
 
     @Override

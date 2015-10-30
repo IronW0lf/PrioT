@@ -63,10 +63,24 @@
         android:text="Fragment Activity" />
 
     <Button
+        android:id="@+id/openRecyclerActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="process"
-        android:id="@+id/openRecyclerActivity"
-        android:text="Recycler Activity"/>
+        android:text="Recycler Activity" />
+
+    <Button
+        android:id="@+id/openFragmentCommunicationActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="process"
+        android:text="Inner Fragment Communication" />
+
+    <Button
+        android:id="@+id/openMediaPlaybackActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="process"
+        android:text="Media Playback" />
 
 </LinearLayout>

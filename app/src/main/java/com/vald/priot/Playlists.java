@@ -11,12 +11,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
-import java.net.Inet4Address;
-
 public class Playlists extends AppCompatActivity {
 
-    public void openFrameActivity (View view){
-        Intent intent = new Intent (this, FrameActivity.class);
+    public void openFrameActivity(View view) {
+        Intent intent = new Intent(this, FrameActivity.class);
         startActivity(intent);
     }
 
@@ -66,25 +64,35 @@ public class Playlists extends AppCompatActivity {
             startActivity(chooser);
         }
 
-        if(view.getId() == R.id.openAdapterActivity){
+        if (view.getId() == R.id.openAdapterActivity) {
             intent = new Intent(this, AdapterActivity.class);
             startActivity(intent);
         }
 
-        if(view.getId() == R.id.openFragmentActivity){
+        if (view.getId() == R.id.openFragmentActivity) {
             intent = new Intent(this, FragmentActivity.class);
             startActivity(intent);
         }
 
-        if(view.getId()==R.id.openRecyclerActivity){
+        if (view.getId() == R.id.openRecyclerActivity) {
             intent = new Intent(this, RecyclerActivity.class);
+            startActivity(intent);
+        }
+
+        if (view.getId() == R.id.openFragmentCommunicationActivity) {
+            intent = new Intent(this, FragmentCommunicationActivity.class);
+            startActivity(intent);
+        }
+
+        if(view.getId() == R.id.openMediaPlaybackActivity){
+            intent = new Intent(this, MediaPlaybackActivity.class);
             startActivity(intent);
         }
     }
 
-    public void showToast(View view){
+    public void showToast(View view) {
         Toast toast = Toast.makeText(this, "Hello, this is toast", Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER,0,0);
+        toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
 
